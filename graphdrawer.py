@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+file_path = 'results.csv'
+df = pd.read_csv(file_path)
+plt.figure(figsize=(14, 6))
+plt.subplot(1, 2, 1)
+plt.plot(df["N"], df["ApproximatedArea"], label="Approximated Area", marker="o")
+plt.title("Approximated Area vs. Number of Points (N)")
+plt.xlabel("Number of Points (N)")
+plt.ylabel("Approximated Area")
+plt.grid(True)
+plt.legend()
+plt.subplot(1, 2, 2)
+plt.plot(df["N"], df["RelativeError"], label="Relative Error", color="r", marker="o")
+plt.title("Relative Error vs. Number of Points (N)")
+plt.xlabel("Number of Points (N)")
+plt.ylabel("Relative Error")
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
